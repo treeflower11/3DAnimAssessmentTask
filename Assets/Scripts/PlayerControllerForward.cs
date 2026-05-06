@@ -32,6 +32,14 @@ public class PlayerControllerForward : MonoBehaviour
         Move();
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("NextScene"))
+        {
+            SceneDirector.GoToNextScene();
+        }
+    }
+
     private void Move()
     {
         Vector2 moveInput = moveAction.ReadValue<Vector2>();

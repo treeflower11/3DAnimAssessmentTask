@@ -32,8 +32,11 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        PlayableDirector sequence = other.GetComponentInChildren<PlayableDirector>();
-        sequence.Play();
+        if (other.CompareTag("Button"))
+        {
+            PlayableDirector sequence = other.GetComponentInChildren<PlayableDirector>();
+            sequence.Play();
+        }
     }
 
     private void Move()
