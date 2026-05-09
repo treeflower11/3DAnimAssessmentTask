@@ -12,6 +12,7 @@ public class PlayerControllerForward : MonoBehaviour
     private float moveSpeed = 5f;
     private float sprintBoost = 1.5f;
     private Animator anim;
+    private SceneDirector sceneDirector;
 
     void Start()
     {
@@ -20,6 +21,7 @@ public class PlayerControllerForward : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         followPlayer = GetComponentInChildren<CinemachineCamera>();
+        sceneDirector = GameObject.Find("SceneDirector")?.GetComponent<SceneDirector>();
         if (followPlayer)
         {
             followPlayer.enabled = true;
@@ -36,7 +38,7 @@ public class PlayerControllerForward : MonoBehaviour
     {
         if (other.CompareTag("NextScene"))
         {
-            SceneDirector.GoToNextScene();
+            sceneDirector.GoToNextSubScene();
         }
     }
 
@@ -46,10 +48,10 @@ public class PlayerControllerForward : MonoBehaviour
 
         float moveX = moveInput.x;
 
-        if (sprintAction.inProgress)
-        {
-            moveX *= sprintBoost;
-        }
+        // if (sprintAction.inProgress)
+        // {
+        //     moveX *= sprintBoost;
+        // }
 
         if (moveInput.x > 0)
         {
