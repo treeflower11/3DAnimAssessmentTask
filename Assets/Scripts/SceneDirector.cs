@@ -30,6 +30,8 @@ public class SceneDirector : MonoBehaviour
         else
         {
             subScenes[subSceneIndex].SetActive(true);
+            Skybox mainCamSkybox = Camera.main.GetComponent<Skybox>();
+            mainCamSkybox.material = subScenes[subSceneIndex].GetComponentInChildren<Skybox>().material;
         }
     }
 
@@ -40,6 +42,11 @@ public class SceneDirector : MonoBehaviour
         for (int i = 0; i < subScenes.Length; i++)
         {
             subScenes[i].SetActive(i == subSceneIndex);
+            if (i == subSceneIndex)
+            {
+                Skybox mainCamSkybox = Camera.main.GetComponent<Skybox>();
+                mainCamSkybox.material = subScenes[subSceneIndex].GetComponentInChildren<Skybox>().material;
+            }
         }
     }
 }
