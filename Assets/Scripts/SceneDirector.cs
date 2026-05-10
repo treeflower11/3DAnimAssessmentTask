@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
 public class SceneDirector : MonoBehaviour
@@ -7,6 +8,7 @@ public class SceneDirector : MonoBehaviour
     public static Scene currentScene {get; private set;} = Scene.A1Interactive1;
     private int subSceneIndex = 0;
     [SerializeField] private GameObject[] subScenes;
+    private PlayableDirector currentlyPlayingTimeline;
 
     public static void GoToNextScene()
     {
@@ -32,6 +34,22 @@ public class SceneDirector : MonoBehaviour
             subScenes[subSceneIndex].SetActive(true);
             Skybox mainCamSkybox = Camera.main.GetComponent<Skybox>();
             mainCamSkybox.material = subScenes[subSceneIndex].GetComponentInChildren<Skybox>().material;
+            PlayableDirector timeline = subScenes[subSceneIndex].GetComponentInChildren<PlayableDirector>();
+            if (timeline)
+            {
+                currentlyPlayingTimeline = timeline;
+                timeline.Play();
+                timeline.stopped += TimelineEnds;
+            }
+        }
+    }
+
+    private void TimelineEnds(PlayableDirector timeline)
+    {
+        if (currentlyPlayingTimeline == timeline)
+        {
+            currentlyPlayingTimeline.stopped -= TimelineEnds;
+            GoToNextSubScene();
         }
     }
 
