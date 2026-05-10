@@ -20,16 +20,16 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Zombies_Custom Mimic
+  m_Name: Mimic Transform3
   m_Shader: {fileID: -6465566751694194690, guid: 4753a43226c591b448e413431c1af883, type: 3}
-  m_Parent: {fileID: 0}
+  m_Parent: {fileID: 2100000, guid: f3f673b9c60c4f341ae6d26f3d5a3aef, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 1996
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
@@ -38,32 +38,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 2baf1ca8200c61542891e774a7ce3aaa, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 543a4f03ef6bb0645aa034e7db918d87, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Cloth_Brightness: 2
-    - _Cloth_Hue: 1
-    - _Cloth_Saturation: 0
-    - _Hair_Brightness: 2
-    - _Hair_Hue: 269
-    - _Hair_Saturation: 0
-    - _QueueControl: 0
-    - _QueueOffset: -4
-    m_Colors:
-    - _SkinColor: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 1}
+    - _Cloth_Hue: 296
+    - _Cloth_Saturation: 2
+    - _Hair_Brightness: 0
+    - _Hair_Saturation: 0.99
+    m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1

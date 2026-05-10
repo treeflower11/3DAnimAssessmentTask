@@ -1028,7 +1028,7 @@ MonoBehaviour:
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  FollowOffset: {x: 3, y: 1, z: 0}
+  FollowOffset: {x: 3, y: 2, z: 2}
 --- !u!114 &698814243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1551,7 +1551,7 @@ MonoBehaviour:
     DefaultMode: 2
   DefaultBlend:
     Style: 0
-    Time: 2
+    Time: 1
     CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -1670,8 +1670,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 863976876}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.00021606225, y: -0.707678, z: 0.00021641175, w: 0.7065351}
-  m_LocalPosition: {x: 3.8300002, y: 1, z: 50.832657}
+  m_LocalRotation: {x: -0.06334075, y: 0.8719099, z: -0.11720747, w: -0.4711938}
+  m_LocalPosition: {x: 3.8300002, y: 2, z: 52.832657}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1729,6 +1729,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 3.495
       objectReference: {fileID: 0}
+    - target: {fileID: 5387114709586157891, guid: b634986a84cb44ec5a22e747a3acd914, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 16c3718449638413296e2135597445c1, type: 2}
     - target: {fileID: 5402730410832474383, guid: b634986a84cb44ec5a22e747a3acd914, type: 3}
       propertyPath: m_Name
       value: Mimic
@@ -2740,7 +2744,7 @@ MonoBehaviour:
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  FollowOffset: {x: 3, y: 1, z: 0}
+  FollowOffset: {x: 3, y: 2, z: 2}
 --- !u!114 &1696913264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2811,8 +2815,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760385823}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.00021606253, y: -0.70767796, z: 0.00021641143, w: 0.7065351}
-  m_LocalPosition: {x: 0.13000011, y: 4.9700003, z: -1.2273464}
+  m_LocalRotation: {x: -0.06334076, y: 0.8719099, z: -0.11720747, w: -0.47119382}
+  m_LocalPosition: {x: 0.13000011, y: 5.9700003, z: 0.7726555}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2865,7 +2869,7 @@ MonoBehaviour:
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  FollowOffset: {x: 3, y: 1, z: 0}
+  FollowOffset: {x: 3, y: 2, z: 2}
 --- !u!114 &1760385827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3654,6 +3658,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 3.495
       objectReference: {fileID: 0}
+    - target: {fileID: 5003031961491061175, guid: b634986a84cb44ec5a22e747a3acd914, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387114709586157891, guid: b634986a84cb44ec5a22e747a3acd914, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7590e9fb789e74d4f98c15e80126bf2f, type: 2}
     - target: {fileID: 5402730410832474383, guid: b634986a84cb44ec5a22e747a3acd914, type: 3}
       propertyPath: m_Name
       value: Mimic
