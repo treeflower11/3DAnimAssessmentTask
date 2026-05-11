@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 381f71c5d2ddd5748930f74940221bac
+guid: 56b5ba35570e54c949f74dda0fd2700a
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -17,10 +17,7 @@ ModelImporter:
     removeConstantScaleCurves: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'mixamo.com' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -32,36 +29,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Fallen Idle
-      takeName: mixamo.com
-      internalID: -203655887218126122
-      firstFrame: 0
-      lastFrame: 45
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -276,18 +244,18 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: Zombies_Female_Kid_Custom@Walking 1(Clone)
+    - name: Zombies_Female_Kid_Custom@Walking(Clone)
       parentName: 
       position: {x: 0.032354552, y: -0.007824478, z: 0.005803698}
       rotation: {x: -0.0051001445, y: -0.08615327, z: 0.030170903, w: 0.99581194}
       scale: {x: 1, y: 1, z: 1}
     - name: Female_Kid
-      parentName: Zombies_Female_Kid_Custom@Walking 1(Clone)
+      parentName: Zombies_Female_Kid_Custom@Walking(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Female_Kid_Armature
-      parentName: Zombies_Female_Kid_Custom@Walking 1(Clone)
+      parentName: Zombies_Female_Kid_Custom@Walking(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7069846, y: 0, z: -0, w: 0.70722896}
       scale: {x: 100, y: 100, z: 100}
@@ -443,7 +411,7 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 38f2da21f759adc469ae14dafe1a83b9, type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: f5ba379151a044c4a880d4bd1a964db7, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1

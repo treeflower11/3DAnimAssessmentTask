@@ -32,15 +32,8 @@ public class SceneDirector : MonoBehaviour
         else
         {
             subScenes[subSceneIndex].SetActive(true);
-            Skybox mainCamSkybox = Camera.main.GetComponent<Skybox>();
-            mainCamSkybox.material = subScenes[subSceneIndex].GetComponentInChildren<Skybox>().material;
-            PlayableDirector timeline = subScenes[subSceneIndex].GetComponentInChildren<PlayableDirector>();
-            if (timeline)
-            {
-                currentlyPlayingTimeline = timeline;
-                timeline.Play();
-                timeline.stopped += TimelineEnds;
-            }
+            SetupSkybox();
+            CheckForTimeline();
         }
     }
 
@@ -62,9 +55,29 @@ public class SceneDirector : MonoBehaviour
             subScenes[i].SetActive(i == subSceneIndex);
             if (i == subSceneIndex)
             {
-                Skybox mainCamSkybox = Camera.main.GetComponent<Skybox>();
-                mainCamSkybox.material = subScenes[subSceneIndex].GetComponentInChildren<Skybox>().material;
+                SetupSkybox();
+                CheckForTimeline();
             }
+        }
+    }
+
+    private void CheckForTimeline()
+    {
+        PlayableDirector timeline = subScenes[subSceneIndex].GetComponentInChildren<PlayableDirector>();
+        if (timeline)
+        {
+            currentlyPlayingTimeline = timeline;
+            timeline.Play();
+            timeline.stopped += TimelineEnds;
+        }
+    }
+
+    private void SetupSkybox()
+    {
+        Skybox mainCamSkybox = Camera.main.GetComponent<Skybox>();
+        if (mainCamSkybox)
+        {
+            mainCamSkybox.material = subScenes[subSceneIndex].GetComponentInChildren<Skybox>().material;
         }
     }
 }
