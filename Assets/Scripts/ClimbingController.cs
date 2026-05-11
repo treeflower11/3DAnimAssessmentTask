@@ -44,7 +44,6 @@ public class ClimbingController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("hello");
         if (other.CompareTag("NextScene"))
         {
             sceneDirector.GoToNextSubScene();
