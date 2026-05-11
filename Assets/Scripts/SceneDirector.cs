@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneDirector : MonoBehaviour
 {
-    public enum Scene {A1Interactive1, A1Interactive2}
-    public static Scene currentScene {get; private set;} = Scene.A1Interactive1;
+    public enum Scene {A1Part1, A1Part2, A2}
+    public static Scene currentScene {get; private set;} = Scene.A1Part1;
     private int subSceneIndex = 0;
     [SerializeField] private GameObject[] subScenes;
     private PlayableDirector currentlyPlayingTimeline;
