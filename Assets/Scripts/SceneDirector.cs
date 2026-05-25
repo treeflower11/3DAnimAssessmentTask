@@ -24,7 +24,7 @@ public class SceneDirector : MonoBehaviour
         SceneManager.LoadSceneAsync((int)currentScene);
     }
 
-    void Awake()
+    void Start()
     {
         StartCoroutine(LoadNewScene());
     }
