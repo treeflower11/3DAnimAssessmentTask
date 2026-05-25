@@ -16,6 +16,7 @@ public class SceneDirector : MonoBehaviour
     public void GoToNextScene()
     {
         currentScene++;
+        if ((int)currentScene >= SceneManager.sceneCountInBuildSettings) return;
         if (cutsceneCoverPrefab)
         {
             GameObject cutscene = Instantiate(cutsceneCoverPrefab);
