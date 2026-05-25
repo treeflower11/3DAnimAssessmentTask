@@ -11,7 +11,7 @@ public class SceneDirector : MonoBehaviour
     [SerializeField] private GameObject[] subScenes;
     private PlayableDirector currentlyPlayingTimeline;
     [SerializeField] private GameObject cutsceneCoverPrefab;
-    private WaitForSeconds waitForSeconds = new(1);
+    private WaitForSeconds waitForSeconds = new(2);
 
     public void GoToNextScene()
     {
