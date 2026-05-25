@@ -838,7 +838,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410715727}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.032086607, y: -0.69015557, z: -0.0306587, w: 0.72229904}
+  m_LocalRotation: {x: -0.03204249, y: -0.6911932, z: -0.030704794, w: 0.72130615}
   m_LocalPosition: {x: 0.28999996, y: 4.683, z: 17.056}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2582,6 +2582,7 @@ MonoBehaviour:
   - {fileID: 1115636032}
   - {fileID: 1820730615}
   - {fileID: 574053278}
+  cutsceneCoverPrefab: {fileID: 8702524903682692684, guid: 406ca40cf44704a159fbc6785fdd33f7, type: 3}
 --- !u!1001 &784627008
 PrefabInstance:
   m_ObjectHideFlags: 0
