@@ -11,11 +11,12 @@ public class SceneDirector : MonoBehaviour
     [SerializeField] private GameObject[] subScenes;
     private PlayableDirector currentlyPlayingTimeline;
     [SerializeField] private GameObject cutsceneCoverPrefab;
-    private WaitForSeconds waitForSeconds = new(1);
+    private WaitForSeconds waitForSeconds = new(2);
 
     public void GoToNextScene()
     {
         currentScene++;
+        if ((int)currentScene >= SceneManager.sceneCountInBuildSettings) return;
         if (cutsceneCoverPrefab)
         {
             GameObject cutscene = Instantiate(cutsceneCoverPrefab);
@@ -24,7 +25,7 @@ public class SceneDirector : MonoBehaviour
         SceneManager.LoadSceneAsync((int)currentScene);
     }
 
-    void Awake()
+    void Start()
     {
         StartCoroutine(LoadNewScene());
     }
