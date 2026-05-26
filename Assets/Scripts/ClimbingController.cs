@@ -1,3 +1,5 @@
+
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,13 +10,20 @@ public class ClimbingController : MonoBehaviour
     private float moveSpeed = 0.25f;
     private Animator anim;
     [SerializeField] private GameObject rope;
+    [SerializeField] private GameObject keyIndicatorPrefab;
     private float handIKWeight = 1;
     private float footIKWeight = 1;
     private SceneDirector sceneDirector;
+    private KeyCode[] keys = {KeyCode.A, KeyCode.B, KeyCode.C, KeyCode.D, KeyCode.E, KeyCode.F, KeyCode.G, KeyCode.H, KeyCode.I, KeyCode.J, KeyCode.K, KeyCode.L, KeyCode.M, KeyCode.N, KeyCode.O, KeyCode.P, KeyCode.Q, KeyCode.R, KeyCode.S, KeyCode.T, KeyCode.U, KeyCode.V, KeyCode.W, KeyCode.X, KeyCode.Y, KeyCode.Z};
+    private Coroutine keyInputCoroutine = null;
+    private KeyCode currentKey;
+    private float maxDuration = 5;
+    private GameObject keyIndicator;
     
-    void Start()
+    void Awake()
     {
-        climbAction = InputSystem.actions.FindAction("Interact");
+        // climbAction = InputSystem.actions.FindAction("Interact");
+        // climbAction = new InputAction(binding: "<Keyboard>/anyKey");
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         sceneDirector = GameObject.Find("SceneDirector")?.GetComponent<SceneDirector>();
@@ -22,6 +31,7 @@ public class ClimbingController : MonoBehaviour
 
     void Update()
     {
+        keyInputCoroutine ??= StartCoroutine(KeyInputCoroutine());
         Climb();
     }
 
@@ -52,18 +62,58 @@ public class ClimbingController : MonoBehaviour
 
     private void Climb()
     {
-        if (climbAction.inProgress)
+        if (Input.GetKeyDown(currentKey))
         {
-            transform.Translate(0, Time.deltaTime * moveSpeed, 0);
-            anim.SetBool("IsClimbing", true);
-            footIKWeight = 0;
-            handIKWeight = 0.4f;
+            Debug.Log("skill check complete!");
+            EndCoroutine();
         }
-        else
+        // if (climbAction.inProgress)
+        // {
+        //     transform.Translate(0, Time.deltaTime * moveSpeed, 0);
+        //     anim.SetBool("IsClimbing", true);
+        //     footIKWeight = 0;
+        //     handIKWeight = 0.4f;
+        // }
+        // else
+        // {
+        //     anim.SetBool("IsClimbing", false);
+        //     footIKWeight = 1;
+        //     handIKWeight = 1;
+        // }
+    }
+
+    private IEnumerator KeyInputCoroutine()
+    {
+        currentKey = GetRandomKey();
+        CreateKeyIndicator(currentKey);
+        float duration = 0;
+        while (duration < maxDuration)
         {
-            anim.SetBool("IsClimbing", false);
-            footIKWeight = 1;
-            handIKWeight = 1;
+            duration += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
         }
+        DestroyKeyIndicator();
+        EndCoroutine();
+    }
+
+    private KeyCode GetRandomKey()
+    {
+        return keys[Random.Range(0, keys.Length)];
+    }
+
+    private void CreateKeyIndicator(KeyCode KeyCode)
+    {
+        Debug.Log(currentKey.ToString());
+    }
+
+    private void DestroyKeyIndicator()
+    {
+        
+    }
+
+    private void EndCoroutine()
+    {
+        StopCoroutine(keyInputCoroutine);
+        keyInputCoroutine = null;
     }
 }
