@@ -1,5 +1,5 @@
-
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,14 +11,20 @@ public class ClimbingController : MonoBehaviour
     private Animator anim;
     [SerializeField] private GameObject rope;
     [SerializeField] private GameObject keyIndicatorPrefab;
+    // [SerializeField] private GameObject canvasPrefab;
+    [SerializeField] private GameObject canvas;
     private float handIKWeight = 1;
     private float footIKWeight = 1;
     private SceneDirector sceneDirector;
     private KeyCode[] keys = {KeyCode.A, KeyCode.B, KeyCode.C, KeyCode.D, KeyCode.E, KeyCode.F, KeyCode.G, KeyCode.H, KeyCode.I, KeyCode.J, KeyCode.K, KeyCode.L, KeyCode.M, KeyCode.N, KeyCode.O, KeyCode.P, KeyCode.Q, KeyCode.R, KeyCode.S, KeyCode.T, KeyCode.U, KeyCode.V, KeyCode.W, KeyCode.X, KeyCode.Y, KeyCode.Z};
     private Coroutine keyInputCoroutine = null;
     private KeyCode currentKey;
-    private float maxDuration = 5;
+    private const float maxDuration = 4;
     private GameObject keyIndicator;
+    private RectTransform keyIndicatorTransform;
+    private float keyIndicatorBaseScalar = 1;
+    private Vector2 xRange = new(0, 500);
+    private Vector2 yRange = new(-300, 300);
     
     void Awake()
     {
@@ -27,6 +33,7 @@ public class ClimbingController : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         sceneDirector = GameObject.Find("SceneDirector")?.GetComponent<SceneDirector>();
+        // canvas = Instantiate(canvasPrefab);
     }
 
     void Update()
@@ -74,7 +81,6 @@ public class ClimbingController : MonoBehaviour
     {
         if (ConvertToUpper(c).Equals(ConvertToUpper(currentKey)))
         {
-            Debug.Log("skill check complete!!");
             Climb();
             EndCoroutine();
         }
@@ -110,9 +116,9 @@ public class ClimbingController : MonoBehaviour
         while (duration < maxDuration)
         {
             duration += Time.deltaTime;
+            ShrinkKeyIndicator((maxDuration - duration) / maxDuration);
             yield return new WaitForEndOfFrame();
         }
-        DestroyKeyIndicator();
         EndCoroutine();
     }
 
@@ -121,18 +127,46 @@ public class ClimbingController : MonoBehaviour
         return keys[Random.Range(0, keys.Length)];
     }
 
-    private void CreateKeyIndicator(KeyCode KeyCode)
+    private void CreateKeyIndicator(KeyCode key)
     {
-        Debug.Log(currentKey.ToString());
+        if (canvas && keyIndicatorPrefab)
+        {
+            keyIndicator = Instantiate(keyIndicatorPrefab, canvas.transform);
+            keyIndicatorTransform = keyIndicator.GetComponent<RectTransform>();
+            if (keyIndicatorTransform) 
+            {
+                keyIndicatorBaseScalar = keyIndicatorTransform.localScale.x;
+                keyIndicatorTransform.localPosition = new Vector2(GetRandomX(), GetRandomY());
+            }
+            
+            if (keyIndicator)
+            {
+                TMP_Text tmp = keyIndicator.GetComponentInChildren<TMP_Text>();
+                tmp.text = ConvertToUpper(key);
+            }
+        }
     }
 
     private void DestroyKeyIndicator()
     {
+        if (keyIndicator)
+        {
+            Destroy(keyIndicator);
+            keyIndicator = null;
+            keyIndicatorTransform = null;
+        }
+    }
+
+    private void ShrinkKeyIndicator(float scalar)
+    {
+        if (!keyIndicatorTransform) return;
         
+        keyIndicatorTransform.localScale = Vector3.one * scalar * keyIndicatorBaseScalar;
     }
 
     private void EndCoroutine()
     {
+        DestroyKeyIndicator();
         StopCoroutine(keyInputCoroutine);
         keyInputCoroutine = null;
     }
@@ -145,5 +179,15 @@ public class ClimbingController : MonoBehaviour
     private string ConvertToUpper(char text)
     {
         return text.ToString().ToUpper();
+    }
+
+    private float GetRandomX()
+    {
+        return Random.Range(xRange.x, xRange.y);
+    }
+
+    private float GetRandomY()
+    {
+        return Random.Range(yRange.x, yRange.y);
     }
 }
