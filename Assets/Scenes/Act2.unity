@@ -9232,6 +9232,10 @@ PlayableDirector:
     value: {fileID: 1017103999}
   - key: {fileID: 7757912722516990291, guid: 208fad1e8b6047c4aa0ed2bd4427990b, type: 2}
     value: {fileID: 1655012845}
+  - key: {fileID: 5006538447720447891, guid: 208fad1e8b6047c4aa0ed2bd4427990b, type: 2}
+    value: {fileID: 1842091992}
+  - key: {fileID: -2303351464101974338, guid: 208fad1e8b6047c4aa0ed2bd4427990b, type: 2}
+    value: {fileID: 1842091992}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &591035152 stripped
@@ -18085,7 +18089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104542477757748448, guid: b634986a84cb44ec5a22e747a3acd914, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.02998921
+      value: -0.029989209
       objectReference: {fileID: 0}
     - target: {fileID: 4104542477757748448, guid: b634986a84cb44ec5a22e747a3acd914, type: 3}
       propertyPath: m_LocalRotation.y
@@ -18093,19 +18097,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104542477757748448, guid: b634986a84cb44ec5a22e747a3acd914, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.006078033
+      value: -0.0060780323
       objectReference: {fileID: 0}
     - target: {fileID: 4104542477757748448, guid: b634986a84cb44ec5a22e747a3acd914, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.51
+      value: -0.00000005298529
       objectReference: {fileID: 0}
     - target: {fileID: 4104542477757748448, guid: b634986a84cb44ec5a22e747a3acd914, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 173.82
+      value: 0.0000003657776
       objectReference: {fileID: 0}
     - target: {fileID: 4104542477757748448, guid: b634986a84cb44ec5a22e747a3acd914, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -3.47
+      value: -0.000000008201539
       objectReference: {fileID: 0}
     - target: {fileID: 4104542477757748448, guid: b634986a84cb44ec5a22e747a3acd914, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -18123,6 +18127,11 @@ PrefabInstance:
 --- !u!4 &1842091991 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4104542477757748448, guid: b634986a84cb44ec5a22e747a3acd914, type: 3}
+  m_PrefabInstance: {fileID: 1842091990}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1842091992 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1799075236962768317, guid: b634986a84cb44ec5a22e747a3acd914, type: 3}
   m_PrefabInstance: {fileID: 1842091990}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1844999394 stripped
