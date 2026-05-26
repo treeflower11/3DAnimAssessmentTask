@@ -32,7 +32,7 @@ public class ClimbingController : MonoBehaviour
     void Update()
     {
         keyInputCoroutine ??= StartCoroutine(KeyInputCoroutine());
-        Climb();
+        // Climb();
     }
 
     void OnAnimatorIK(int layerIndex){
@@ -60,13 +60,33 @@ public class ClimbingController : MonoBehaviour
         }
     }
 
-    private void Climb()
+    protected void OnEnable()
     {
-        if (Input.GetKeyDown(currentKey))
+        Keyboard.current.onTextInput += OnTextInput;
+    }
+
+    protected void OnDisable()
+    {
+        Keyboard.current.onTextInput -= OnTextInput;
+    }
+
+    private void OnTextInput(char c)
+    {
+        if (ConvertToLower(c).Equals(ConvertToLower(currentKey.ToString())))
         {
-            Debug.Log("skill check complete!");
+            Debug.Log("skill check complete!!");
+            Climb();
             EndCoroutine();
         }
+    }
+
+    private void Climb()
+    {
+        // if (Input.GetKeyDown(currentKey))
+        // {
+        //     Debug.Log("skill check complete!");
+        //     EndCoroutine();
+        // }
         // if (climbAction.inProgress)
         // {
         //     transform.Translate(0, Time.deltaTime * moveSpeed, 0);
@@ -115,5 +135,15 @@ public class ClimbingController : MonoBehaviour
     {
         StopCoroutine(keyInputCoroutine);
         keyInputCoroutine = null;
+    }
+
+    private string ConvertToLower(string text)
+    {
+        return text.ToLower();
+    }
+
+    private string ConvertToLower(char text)
+    {
+        return text.ToString().ToLower();
     }
 }
