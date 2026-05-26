@@ -22,6 +22,7 @@ public class ClimbingController : MonoBehaviour
     private KeyCode currentKey;
     private const float maxDuration = 4;
     private const float totalDistance = 0.25f;
+    private const float totalFallDistance = totalDistance/2;
     private GameObject keyIndicator;
     private RectTransform keyIndicatorTransform;
     private float keyIndicatorBaseScalar = 1;
@@ -29,6 +30,7 @@ public class ClimbingController : MonoBehaviour
     private Vector2 yRange = new(-300, 300);
     private List<System.Func<IEnumerator>> moveQueue = new();
     private Coroutine moveCoroutine = null;
+    private float initialHeight;
     
     void Awake()
     {
@@ -38,6 +40,7 @@ public class ClimbingController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         sceneDirector = GameObject.Find("SceneDirector")?.GetComponent<SceneDirector>();
         StopMovingAnimation();
+        initialHeight = transform.position.y;
         // canvas = Instantiate(canvasPrefab);
     }
 
@@ -89,6 +92,11 @@ public class ClimbingController : MonoBehaviour
             AddToClimbQueue();
             EndKeyCoroutine();
         }
+        else
+        {
+            StartFalling();
+            EndKeyCoroutine();
+        }
     }
 
     private void MoveMimic()
@@ -106,6 +114,26 @@ public class ClimbingController : MonoBehaviour
     private void AddToClimbQueue()
     {
         moveQueue.Add(Climb);
+    }
+
+    private void StartFalling()
+    {
+        EndMoveCoroutine();
+        moveQueue.Clear();
+        moveCoroutine = StartCoroutine(Fall());
+    }
+
+    private IEnumerator Fall()
+    {
+        float distance = 0;
+        while (distance < totalFallDistance && transform.position.y > initialHeight)
+        {
+            distance += Time.deltaTime * moveSpeed;
+            transform.Translate(0, Time.deltaTime * -moveSpeed, 0);
+            StopMovingAnimation();
+            yield return new WaitForEndOfFrame();
+        }
+        EndMoveCoroutine();
     }
 
     private IEnumerator Climb()
@@ -134,6 +162,7 @@ public class ClimbingController : MonoBehaviour
             ShrinkKeyIndicator((maxDuration - duration) / maxDuration);
             yield return new WaitForEndOfFrame();
         }
+        StartFalling();
         EndKeyCoroutine();
     }
 
@@ -183,14 +212,20 @@ public class ClimbingController : MonoBehaviour
     private void EndKeyCoroutine()
     {
         DestroyKeyIndicator();
-        StopCoroutine(keyInputCoroutine);
-        keyInputCoroutine = null;
+        if (keyInputCoroutine != null)
+        {
+            StopCoroutine(keyInputCoroutine);
+            keyInputCoroutine = null;
+        }
     }
 
     private void EndMoveCoroutine()
     {
-        StopCoroutine(moveCoroutine);
-        moveCoroutine = null;
+        if (moveCoroutine != null)
+        {
+            StopCoroutine(moveCoroutine);
+            moveCoroutine = null;
+        }
         StopMovingAnimation();
     }
 
