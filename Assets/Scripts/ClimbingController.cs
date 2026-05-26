@@ -11,7 +11,7 @@ public class ClimbingController : MonoBehaviour
     private float moveSpeed = 0.25f;
     private Animator anim;
     [SerializeField] private GameObject rope;
-    [SerializeField] private GameObject keyIndicatorPrefab;
+    [SerializeField] private GameObject[] keyIndicatorPrefabs;
     // [SerializeField] private GameObject canvasPrefab;
     [SerializeField] private GameObject canvas;
     private float handIKWeight = 1;
@@ -145,6 +145,7 @@ public class ClimbingController : MonoBehaviour
 
     private void CreateKeyIndicator(KeyCode key)
     {
+        GameObject keyIndicatorPrefab = GetRandomKeyIndicator();
         if (canvas && keyIndicatorPrefab)
         {
             keyIndicator = Instantiate(keyIndicatorPrefab, canvas.transform);
@@ -219,5 +220,11 @@ public class ClimbingController : MonoBehaviour
     private float GetRandomY()
     {
         return Random.Range(yRange.x, yRange.y);
+    }
+
+    private GameObject GetRandomKeyIndicator()
+    {
+        if (keyIndicatorPrefabs.Length == 0) return null;
+        return keyIndicatorPrefabs[Random.Range(0, keyIndicatorPrefabs.Length)];
     }
 }

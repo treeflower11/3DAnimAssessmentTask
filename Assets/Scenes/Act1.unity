@@ -6695,7 +6695,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClimbingController
   rope: {fileID: 1091184216}
-  keyIndicatorPrefab: {fileID: 495449534640249915, guid: 7c6a51e9f21f14b8a83af3259b0849b7, type: 3}
+  keyIndicatorPrefabs:
+  - {fileID: 495449534640249915, guid: 7c6a51e9f21f14b8a83af3259b0849b7, type: 3}
+  - {fileID: 2351657770174264104, guid: 5c72e8e87d337463890ec86c9537bbf9, type: 3}
+  - {fileID: 7996927875571580171, guid: f3666e00d08ce4f04b8858db27353803, type: 3}
+  - {fileID: 6829035306699429032, guid: b9355dd51b64c4a588e4aea3b37a8a4b, type: 3}
+  - {fileID: 4211914958507837698, guid: 49e29453cf7774af38d481afe84cd83c, type: 3}
+  - {fileID: 1070687661082836345, guid: d1308e64a829241a7a6cf69b1d93c354, type: 3}
+  - {fileID: 1024134843981736005, guid: 6df99765d796e44d88c76c3572ddfe80, type: 3}
   canvas: {fileID: 188034476091152619}
 --- !u!136 &1420662217
 CapsuleCollider:
@@ -10775,10 +10782,6 @@ PrefabInstance:
     - target: {fileID: 4692395162082823048, guid: 4d121dd993eb04ed5b981ed23110c77b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9144204674182228952, guid: 4d121dd993eb04ed5b981ed23110c77b, type: 3}
-      propertyPath: m_text
-      value: Hold E to climb the rope!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
