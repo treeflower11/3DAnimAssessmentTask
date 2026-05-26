@@ -110,7 +110,6 @@ public class ClimbingController : MonoBehaviour
 
     private IEnumerator Climb()
     {
-        Debug.Log("moving 1 chunk!!");
         float distance = 0;
         while (distance < totalDistance)
         {
