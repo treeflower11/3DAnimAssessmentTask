@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
@@ -9,16 +10,35 @@ public class SceneDirector : MonoBehaviour
     private int subSceneIndex = 0;
     [SerializeField] private GameObject[] subScenes;
     private PlayableDirector currentlyPlayingTimeline;
+    [SerializeField] private GameObject cutsceneCoverPrefab;
+    private WaitForSeconds waitForSeconds = new(2);
 
-    public static void GoToNextScene()
+    public void GoToNextScene()
     {
         currentScene++;
+        if ((int)currentScene >= SceneManager.sceneCountInBuildSettings) return;
+        if (cutsceneCoverPrefab)
+        {
+            GameObject cutscene = Instantiate(cutsceneCoverPrefab);
+            DontDestroyOnLoad(cutscene);
+        }
         SceneManager.LoadSceneAsync((int)currentScene);
     }
 
     void Start()
     {
-        SetupSubScenes();
+        StartCoroutine(LoadNewScene());
+    }
+
+    private IEnumerator LoadNewScene()
+    {
+        GameObject cutscene = GameObject.FindWithTag("Cutscene");
+        if (cutscene)
+        {
+            yield return waitForSeconds;
+            Destroy(cutscene);
+        }
+        SetupSubScenes();  
     }
 
     public void GoToNextSubScene()

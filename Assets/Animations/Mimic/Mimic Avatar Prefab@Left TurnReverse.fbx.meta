@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: acfa0b8cff1af1e4d979bbd0ae186e54
+guid: ac91789b0c13df24b8859f889d898c4e
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -244,18 +244,18 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: Zombies_Female_Kid_Custom@Walking(Clone)
+    - name: Zombies_Female_Kid_Custom@Walking 1(Clone)
       parentName: 
       position: {x: 0.032354552, y: -0.007824478, z: 0.005803698}
       rotation: {x: -0.0051001445, y: -0.08615327, z: 0.030170903, w: 0.99581194}
       scale: {x: 1, y: 1, z: 1}
     - name: Female_Kid
-      parentName: Zombies_Female_Kid_Custom@Walking(Clone)
+      parentName: Zombies_Female_Kid_Custom@Walking 1(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Female_Kid_Armature
-      parentName: Zombies_Female_Kid_Custom@Walking(Clone)
+      parentName: Zombies_Female_Kid_Custom@Walking 1(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7069846, y: 0, z: -0, w: 0.70722896}
       scale: {x: 100, y: 100, z: 100}
@@ -411,7 +411,7 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: f5ba379151a044c4a880d4bd1a964db7, type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 38f2da21f759adc469ae14dafe1a83b9, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
