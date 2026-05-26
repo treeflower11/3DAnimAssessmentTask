@@ -72,7 +72,7 @@ public class ClimbingController : MonoBehaviour
 
     private void OnTextInput(char c)
     {
-        if (ConvertToLower(c).Equals(ConvertToLower(currentKey.ToString())))
+        if (ConvertToUpper(c).Equals(ConvertToUpper(currentKey)))
         {
             Debug.Log("skill check complete!!");
             Climb();
@@ -137,13 +137,13 @@ public class ClimbingController : MonoBehaviour
         keyInputCoroutine = null;
     }
 
-    private string ConvertToLower(string text)
+    private string ConvertToUpper(KeyCode text)
     {
-        return text.ToLower();
+        return text.ToString().ToUpper();
     }
 
-    private string ConvertToLower(char text)
+    private string ConvertToUpper(char text)
     {
-        return text.ToString().ToLower();
+        return text.ToString().ToUpper();
     }
 }
