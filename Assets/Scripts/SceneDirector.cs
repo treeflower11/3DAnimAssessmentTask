@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneDirector : MonoBehaviour
 {
-    public enum Scene {A1Interactive1, A1Interactive2}
-    public static Scene currentScene {get; private set;} = Scene.A1Interactive1;
+    public enum Scene {A1Part1, A1Part2, A2}
+    public static Scene currentScene {get; private set;} = Scene.A1Part1;
     private int subSceneIndex = 0;
     [SerializeField] private GameObject[] subScenes;
     private PlayableDirector currentlyPlayingTimeline;
@@ -32,15 +32,8 @@ public class SceneDirector : MonoBehaviour
         else
         {
             subScenes[subSceneIndex].SetActive(true);
-            Skybox mainCamSkybox = Camera.main.GetComponent<Skybox>();
-            mainCamSkybox.material = subScenes[subSceneIndex].GetComponentInChildren<Skybox>().material;
-            PlayableDirector timeline = subScenes[subSceneIndex].GetComponentInChildren<PlayableDirector>();
-            if (timeline)
-            {
-                currentlyPlayingTimeline = timeline;
-                timeline.Play();
-                timeline.stopped += TimelineEnds;
-            }
+            SetupSkybox();
+            CheckForTimeline();
         }
     }
 
@@ -62,9 +55,29 @@ public class SceneDirector : MonoBehaviour
             subScenes[i].SetActive(i == subSceneIndex);
             if (i == subSceneIndex)
             {
-                Skybox mainCamSkybox = Camera.main.GetComponent<Skybox>();
-                mainCamSkybox.material = subScenes[subSceneIndex].GetComponentInChildren<Skybox>().material;
+                SetupSkybox();
+                CheckForTimeline();
             }
+        }
+    }
+
+    private void CheckForTimeline()
+    {
+        PlayableDirector timeline = subScenes[subSceneIndex].GetComponentInChildren<PlayableDirector>();
+        if (timeline)
+        {
+            currentlyPlayingTimeline = timeline;
+            timeline.Play();
+            timeline.stopped += TimelineEnds;
+        }
+    }
+
+    private void SetupSkybox()
+    {
+        Skybox mainCamSkybox = Camera.main.GetComponent<Skybox>();
+        if (mainCamSkybox)
+        {
+            mainCamSkybox.material = subScenes[subSceneIndex].GetComponentInChildren<Skybox>().material;
         }
     }
 }
