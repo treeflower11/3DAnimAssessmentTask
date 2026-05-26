@@ -6695,6 +6695,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClimbingController
   rope: {fileID: 1091184216}
+  keyIndicatorPrefab: {fileID: 495449534640249915, guid: 7c6a51e9f21f14b8a83af3259b0849b7, type: 3}
+  canvas: {fileID: 188034476091152619}
 --- !u!136 &1420662217
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10783,6 +10785,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d121dd993eb04ed5b981ed23110c77b, type: 3}
+--- !u!1 &188034476091152619 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2728048927191506521, guid: 4d121dd993eb04ed5b981ed23110c77b, type: 3}
+  m_PrefabInstance: {fileID: 188034476091152618}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3447607338791796462 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4692395162082823048, guid: 4d121dd993eb04ed5b981ed23110c77b, type: 3}
