@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -20,11 +21,14 @@ public class ClimbingController : MonoBehaviour
     private Coroutine keyInputCoroutine = null;
     private KeyCode currentKey;
     private const float maxDuration = 4;
+    private const float totalDistance = 0.25f;
     private GameObject keyIndicator;
     private RectTransform keyIndicatorTransform;
     private float keyIndicatorBaseScalar = 1;
     private Vector2 xRange = new(0, 500);
     private Vector2 yRange = new(-300, 300);
+    private List<System.Func<IEnumerator>> moveQueue = new();
+    private Coroutine moveCoroutine = null;
     
     void Awake()
     {
@@ -33,13 +37,14 @@ public class ClimbingController : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         sceneDirector = GameObject.Find("SceneDirector")?.GetComponent<SceneDirector>();
+        StopMovingAnimation();
         // canvas = Instantiate(canvasPrefab);
     }
 
     void Update()
     {
         keyInputCoroutine ??= StartCoroutine(KeyInputCoroutine());
-        // Climb();
+        MoveMimic();
     }
 
     void OnAnimatorIK(int layerIndex){
@@ -81,31 +86,42 @@ public class ClimbingController : MonoBehaviour
     {
         if (ConvertToUpper(c).Equals(ConvertToUpper(currentKey)))
         {
-            Climb();
-            EndCoroutine();
+            AddToClimbQueue();
+            EndKeyCoroutine();
         }
     }
 
-    private void Climb()
+    private void MoveMimic()
     {
-        // if (Input.GetKeyDown(currentKey))
-        // {
-        //     Debug.Log("skill check complete!");
-        //     EndCoroutine();
-        // }
-        // if (climbAction.inProgress)
-        // {
-        //     transform.Translate(0, Time.deltaTime * moveSpeed, 0);
-        //     anim.SetBool("IsClimbing", true);
-        //     footIKWeight = 0;
-        //     handIKWeight = 0.4f;
-        // }
-        // else
-        // {
-        //     anim.SetBool("IsClimbing", false);
-        //     footIKWeight = 1;
-        //     handIKWeight = 1;
-        // }
+        if (moveCoroutine == null)
+        {
+            if (moveQueue.Count != 0)
+            {
+                moveCoroutine = StartCoroutine(moveQueue[0]());
+                moveQueue.RemoveAt(0);
+            }
+        }
+    }
+
+    private void AddToClimbQueue()
+    {
+        moveQueue.Add(Climb);
+    }
+
+    private IEnumerator Climb()
+    {
+        Debug.Log("moving 1 chunk!!");
+        float distance = 0;
+        while (distance < totalDistance)
+        {
+            distance += Time.deltaTime * moveSpeed;
+            transform.Translate(0, Time.deltaTime * moveSpeed, 0);
+            anim.SetBool("IsClimbing", true);
+            footIKWeight = 0;
+            handIKWeight = 0.4f;
+            yield return new WaitForEndOfFrame();
+        }
+        EndMoveCoroutine();
     }
 
     private IEnumerator KeyInputCoroutine()
@@ -119,7 +135,7 @@ public class ClimbingController : MonoBehaviour
             ShrinkKeyIndicator((maxDuration - duration) / maxDuration);
             yield return new WaitForEndOfFrame();
         }
-        EndCoroutine();
+        EndKeyCoroutine();
     }
 
     private KeyCode GetRandomKey()
@@ -164,11 +180,25 @@ public class ClimbingController : MonoBehaviour
         keyIndicatorTransform.localScale = Vector3.one * scalar * keyIndicatorBaseScalar;
     }
 
-    private void EndCoroutine()
+    private void EndKeyCoroutine()
     {
         DestroyKeyIndicator();
         StopCoroutine(keyInputCoroutine);
         keyInputCoroutine = null;
+    }
+
+    private void EndMoveCoroutine()
+    {
+        StopCoroutine(moveCoroutine);
+        moveCoroutine = null;
+        StopMovingAnimation();
+    }
+
+    private void StopMovingAnimation()
+    {
+        anim.SetBool("IsClimbing", false);
+        footIKWeight = 1;
+        handIKWeight = 1;
     }
 
     private string ConvertToUpper(KeyCode text)
