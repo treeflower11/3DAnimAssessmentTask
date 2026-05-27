@@ -13,6 +13,8 @@ public class ClimbingController : MonoBehaviour
     [SerializeField] private GameObject rope;
     [SerializeField] private GameObject[] keyIndicatorPrefabs;
     [SerializeField] private GameObject canvas;
+    private ParticleSystem happyParticles;
+    private ParticleSystem sadParticles;
     private float handIKWeight = 1;
     private float footIKWeight = 1;
     private SceneDirector sceneDirector;
@@ -44,6 +46,14 @@ public class ClimbingController : MonoBehaviour
             if (animator.gameObject == gameObject) anim = animator;
             else eyeAnim = animator;
         }
+
+        ParticleSystem[] particleSystems =GetComponentsInChildren<ParticleSystem>();
+        foreach (ParticleSystem particle in particleSystems)
+        {
+            if (particle.name.Equals("HappyParticles")) happyParticles = particle;
+            else sadParticles = particle;
+        }
+
         sceneDirector = GameObject.Find("SceneDirector")?.GetComponent<SceneDirector>();
         StopMovingAnimation();
         initialHeight = transform.position.y;
@@ -142,6 +152,7 @@ public class ClimbingController : MonoBehaviour
     private IEnumerator Fall()
     {
         float distance = 0;
+        PlayParticles(sadParticles);
         while (distance < totalFallDistance && transform.position.y > initialHeight)
         {
             distance += Time.deltaTime * moveSpeed;
@@ -156,6 +167,7 @@ public class ClimbingController : MonoBehaviour
     private IEnumerator Climb()
     {
         float distance = 0;
+        PlayParticles(happyParticles);
         while (distance < totalClimbDistance)
         {
             distance += Time.deltaTime * moveSpeed;
@@ -292,5 +304,18 @@ public class ClimbingController : MonoBehaviour
     {
         if (!a) return;
         a.SetBool(boolName, true);
+    }
+
+    private void PlayParticles(ParticleSystem p)
+    {
+        if (!p) return;
+        ClearAllParticles();
+        p.Play();
+    }
+
+    private void ClearAllParticles()
+    {
+        if (happyParticles) happyParticles.Clear();
+        if (sadParticles) sadParticles.Clear();
     }
 }
