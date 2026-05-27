@@ -44,8 +44,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _Cloth_Brightness: 2
-    - _Cloth_Hue: 95
-    - _Cloth_Saturation: 2
+    - _Cloth_Hue: 126
+    - _Cloth_Saturation: 1.51
     - _Hair_Brightness: 0
     - _Hair_Hue: 360
     - _Hair_Saturation: 2
