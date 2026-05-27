@@ -7808,7 +7808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5974976748710662944, guid: 9eec780cdbedbbc41abdfcf4cdd066e2, type: 3}
       propertyPath: m_Intensity
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7768231717256033970, guid: 9eec780cdbedbbc41abdfcf4cdd066e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18156,19 +18156,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5974976748710662944, guid: 9eec780cdbedbbc41abdfcf4cdd066e2, type: 3}
       propertyPath: m_Intensity
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7768231717256033970, guid: 9eec780cdbedbbc41abdfcf4cdd066e2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7768231717256033970, guid: 9eec780cdbedbbc41abdfcf4cdd066e2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.31
+      value: 1.35
       objectReference: {fileID: 0}
     - target: {fileID: 7768231717256033970, guid: 9eec780cdbedbbc41abdfcf4cdd066e2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.24
       objectReference: {fileID: 0}
     - target: {fileID: 7831010271976758790, guid: 9eec780cdbedbbc41abdfcf4cdd066e2, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -19224,6 +19224,10 @@ PrefabInstance:
     - target: {fileID: 91071387215159315, guid: 9eec780cdbedbbc41abdfcf4cdd066e2, type: 3}
       propertyPath: m_Name
       value: BlueCrystal (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5974976748710662944, guid: 9eec780cdbedbbc41abdfcf4cdd066e2, type: 3}
+      propertyPath: m_Range
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22094,7 +22098,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5974976748710662944, guid: 9eec780cdbedbbc41abdfcf4cdd066e2, type: 3}
       propertyPath: m_Intensity
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7768231717256033970, guid: 9eec780cdbedbbc41abdfcf4cdd066e2, type: 3}
       propertyPath: m_LocalPosition.x
