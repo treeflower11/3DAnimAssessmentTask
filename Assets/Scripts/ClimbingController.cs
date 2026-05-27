@@ -115,6 +115,7 @@ public class ClimbingController : MonoBehaviour
     {
         if (ConvertToUpper(c).Equals(ConvertToUpper(currentKey)))
         {
+            PlayParticles(happyParticles);
             AddToClimbQueue();
             EndKeyCoroutine();
         }
@@ -167,7 +168,6 @@ public class ClimbingController : MonoBehaviour
     private IEnumerator Climb()
     {
         float distance = 0;
-        PlayParticles(happyParticles);
         while (distance < totalClimbDistance)
         {
             distance += Time.deltaTime * moveSpeed;
