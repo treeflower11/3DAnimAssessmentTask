@@ -2022,6 +2022,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5171884442004585383, guid: 15389d5e2616346a09ca51092f7352c2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 4.4988403
+      objectReference: {fileID: 0}
     - target: {fileID: 5831041505626287177, guid: 15389d5e2616346a09ca51092f7352c2, type: 3}
       propertyPath: m_Name
       value: RunSequenceInstructions

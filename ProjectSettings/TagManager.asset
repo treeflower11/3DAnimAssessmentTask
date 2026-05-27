@@ -7,6 +7,7 @@ TagManager:
   - Button
   - NextScene
   - Cutscene
+  - ClimbSlider
   layers:
   - Default
   - TransparentFX
