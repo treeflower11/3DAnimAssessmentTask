@@ -9,10 +9,12 @@ public class ClimbingController : MonoBehaviour
 {
     private float moveSpeed = 0.25f;
     private Animator anim;
+    private Animator eyeAnim;
     [SerializeField] private GameObject rope;
     [SerializeField] private GameObject[] keyIndicatorPrefabs;
-    // [SerializeField] private GameObject canvasPrefab;
     [SerializeField] private GameObject canvas;
+    private ParticleSystem happyParticles;
+    private ParticleSystem sadParticles;
     private float handIKWeight = 1;
     private float footIKWeight = 1;
     private SceneDirector sceneDirector;
@@ -37,7 +39,21 @@ public class ClimbingController : MonoBehaviour
     
     void Awake()
     {
-        anim = GetComponent<Animator>();
+        // anim = GetComponent<Animator>();
+        Animator[] animators = GetComponentsInChildren<Animator>();
+        foreach (Animator animator in animators)
+        {
+            if (animator.gameObject == gameObject) anim = animator;
+            else eyeAnim = animator;
+        }
+
+        ParticleSystem[] particleSystems =GetComponentsInChildren<ParticleSystem>();
+        foreach (ParticleSystem particle in particleSystems)
+        {
+            if (particle.name.Equals("HappyParticles")) happyParticles = particle;
+            else sadParticles = particle;
+        }
+
         sceneDirector = GameObject.Find("SceneDirector")?.GetComponent<SceneDirector>();
         StopMovingAnimation();
         initialHeight = transform.position.y;
@@ -99,6 +115,7 @@ public class ClimbingController : MonoBehaviour
     {
         if (ConvertToUpper(c).Equals(ConvertToUpper(currentKey)))
         {
+            PlayParticles(happyParticles);
             AddToClimbQueue();
             EndKeyCoroutine();
         }
@@ -136,11 +153,13 @@ public class ClimbingController : MonoBehaviour
     private IEnumerator Fall()
     {
         float distance = 0;
+        PlayParticles(sadParticles);
         while (distance < totalFallDistance && transform.position.y > initialHeight)
         {
             distance += Time.deltaTime * moveSpeed;
             transform.Translate(0, Time.deltaTime * -moveSpeed, 0);
             StopMovingAnimation();
+            StartAnim(eyeAnim, "IsWorried");
             yield return new WaitForEndOfFrame();
         }
         EndMoveCoroutine();
@@ -153,7 +172,8 @@ public class ClimbingController : MonoBehaviour
         {
             distance += Time.deltaTime * moveSpeed;
             transform.Translate(0, Time.deltaTime * moveSpeed, 0);
-            anim.SetBool("IsClimbing", true);
+            StartAnim(anim, "IsClimbing");
+            StartAnim(eyeAnim, "IsHappy");
             footIKWeight = 0;
             handIKWeight = 0.4f;
             yield return new WaitForEndOfFrame();
@@ -236,6 +256,7 @@ public class ClimbingController : MonoBehaviour
             StopCoroutine(moveCoroutine);
             moveCoroutine = null;
         }
+        ResetEyeAnimBools();
         StopMovingAnimation();
     }
 
@@ -270,5 +291,31 @@ public class ClimbingController : MonoBehaviour
     {
         if (keyIndicatorPrefabs.Length == 0) return null;
         return keyIndicatorPrefabs[Random.Range(0, keyIndicatorPrefabs.Length)];
+    }
+
+    private void ResetEyeAnimBools()
+    {
+        if (!eyeAnim) return;
+        eyeAnim.SetBool("IsWorried", false);
+        eyeAnim.SetBool("IsHappy", false);
+    }
+
+    private void StartAnim(Animator a, string boolName)
+    {
+        if (!a) return;
+        a.SetBool(boolName, true);
+    }
+
+    private void PlayParticles(ParticleSystem p)
+    {
+        if (!p) return;
+        ClearAllParticles();
+        p.Play();
+    }
+
+    private void ClearAllParticles()
+    {
+        if (happyParticles) happyParticles.Clear();
+        if (sadParticles) sadParticles.Clear();
     }
 }
