@@ -14179,6 +14179,7 @@ MonoBehaviour:
   - {fileID: 1115636032}
   - {fileID: 1820730615}
   - {fileID: 574053278}
+  - {fileID: 604249725}
   cutsceneCoverPrefab: {fileID: 8702524903682692684, guid: 406ca40cf44704a159fbc6785fdd33f7, type: 3}
 --- !u!1001 &784627008
 PrefabInstance:
