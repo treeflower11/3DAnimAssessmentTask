@@ -2476,6 +2476,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f86b297dc92c4f54b3c5548e499ae11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  givePaperInstructions: {fileID: 0}
+  moveInstructions: {fileID: 0}
 --- !u!114 &292631907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4665,6 +4667,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f86b297dc92c4f54b3c5548e499ae11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  givePaperInstructions: {fileID: 0}
+  moveInstructions: {fileID: 0}
 --- !u!114 &519625770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16405,6 +16409,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f86b297dc92c4f54b3c5548e499ae11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  givePaperInstructions: {fileID: 0}
+  moveInstructions: {fileID: 0}
 --- !u!114 &1169422028
 MonoBehaviour:
   m_ObjectHideFlags: 0
