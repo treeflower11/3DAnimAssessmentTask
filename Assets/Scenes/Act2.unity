@@ -14148,6 +14148,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.198257
       objectReference: {fileID: 0}
+    - target: {fileID: 5387114709586157891, guid: b634986a84cb44ec5a22e747a3acd914, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 16c3718449638413296e2135597445c1, type: 2}
     - target: {fileID: 5402730410832474383, guid: b634986a84cb44ec5a22e747a3acd914, type: 3}
       propertyPath: m_Name
       value: Mimic (1)
@@ -27878,6 +27882,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.198257
       objectReference: {fileID: 0}
+    - target: {fileID: 5387114709586157891, guid: b634986a84cb44ec5a22e747a3acd914, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 16c3718449638413296e2135597445c1, type: 2}
     - target: {fileID: 5402730410832474383, guid: b634986a84cb44ec5a22e747a3acd914, type: 3}
       propertyPath: m_Name
       value: Mimic
