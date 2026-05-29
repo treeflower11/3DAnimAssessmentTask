@@ -1200,6 +1200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneDirector
   subScenes:
+  - {fileID: 1291027807}
   - {fileID: 1703036953}
   cutsceneCoverPrefab: {fileID: 0}
 --- !u!1 &902221476
@@ -2611,8 +2612,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515763541}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.064749494, y: -0.027539605, z: 0.0014622954, w: 0.99752045}
-  m_LocalPosition: {x: 43.02796, y: 2.102157, z: 64.3812}
+  m_LocalRotation: {x: 0.045016035, y: 0.94459426, z: -0.2894707, w: 0.14806077}
+  m_LocalPosition: {x: 55.887585, y: 3.2805755, z: 30.686756}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2641,7 +2642,7 @@ MonoBehaviour:
     Enabled: 0
     DefaultMode: 2
   DefaultBlend:
-    Style: 1
+    Style: 0
     Time: 2
     CustomCurve:
       serializedVersion: 2
