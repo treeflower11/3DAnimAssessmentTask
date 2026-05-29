@@ -1559,7 +1559,7 @@ MonoBehaviour:
   - {fileID: 223172494}
   - {fileID: 442229348}
   - {fileID: 349303485}
-  cutsceneCoverPrefab: {fileID: 0}
+  cutsceneCoverPrefab: {fileID: 8702524903682692684, guid: 406ca40cf44704a159fbc6785fdd33f7, type: 3}
 --- !u!4 &97037937
 Transform:
   m_ObjectHideFlags: 0
@@ -7540,7 +7540,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 97037936}
         m_TargetAssemblyTypeName: SceneDirector, Assembly-CSharp
-        m_MethodName: GoToNextScene
+        m_MethodName: GoToNextSubScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17590,7 +17590,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
