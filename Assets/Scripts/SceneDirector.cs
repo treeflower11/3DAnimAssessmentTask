@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneDirector : MonoBehaviour
 {
-    public enum Scene {A1Part1, A1Part2, A2}
+    public enum Scene {A1Part1, A1Part2, A2, A3}
     public static Scene currentScene {get; private set;} = Scene.A1Part1;
     private int subSceneIndex = 0;
     [SerializeField] private GameObject[] subScenes;
@@ -13,7 +13,7 @@ public class SceneDirector : MonoBehaviour
     [SerializeField] private GameObject cutsceneCoverPrefab;
     private WaitForSeconds waitForSeconds = new(2);
 
-    public void GoToNextScene()
+    private void GoToNextScene()
     {
         currentScene++;
         if ((int)currentScene >= SceneManager.sceneCountInBuildSettings) return;
@@ -28,6 +28,11 @@ public class SceneDirector : MonoBehaviour
     void Start()
     {
         StartCoroutine(LoadNewScene());
+    }
+
+    void Awake()
+    {
+        currentScene = (Scene)SceneManager.GetActiveScene().buildIndex;
     }
 
     private IEnumerator LoadNewScene()
@@ -97,7 +102,7 @@ public class SceneDirector : MonoBehaviour
         Skybox mainCamSkybox = Camera.main.GetComponent<Skybox>();
         if (mainCamSkybox)
         {
-            mainCamSkybox.material = subScenes[subSceneIndex].GetComponentInChildren<Skybox>().material;
+            mainCamSkybox.material = subScenes[subSceneIndex].GetComponentInChildren<Skybox>()?.material;
         }
     }
 }

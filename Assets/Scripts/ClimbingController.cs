@@ -14,7 +14,7 @@ public class ClimbingController : MonoBehaviour
     [SerializeField] private GameObject[] keyIndicatorPrefabs;
     [SerializeField] private GameObject canvas;
     private ParticleSystem happyParticles;
-    private ParticleSystem sadParticles;
+    private ParticleSystem nervousParticles;
     private float handIKWeight = 1;
     private float footIKWeight = 1;
     private SceneDirector sceneDirector;
@@ -51,7 +51,7 @@ public class ClimbingController : MonoBehaviour
         foreach (ParticleSystem particle in particleSystems)
         {
             if (particle.name.Equals("HappyParticles")) happyParticles = particle;
-            else sadParticles = particle;
+            else nervousParticles = particle;
         }
 
         sceneDirector = GameObject.Find("SceneDirector")?.GetComponent<SceneDirector>();
@@ -153,7 +153,7 @@ public class ClimbingController : MonoBehaviour
     private IEnumerator Fall()
     {
         float distance = 0;
-        PlayParticles(sadParticles);
+        PlayParticles(nervousParticles);
         while (distance < totalFallDistance && transform.position.y > initialHeight)
         {
             distance += Time.deltaTime * moveSpeed;
@@ -316,6 +316,6 @@ public class ClimbingController : MonoBehaviour
     private void ClearAllParticles()
     {
         if (happyParticles) happyParticles.Clear();
-        if (sadParticles) sadParticles.Clear();
+        if (nervousParticles) nervousParticles.Clear();
     }
 }
