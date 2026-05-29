@@ -97,7 +97,7 @@ public class SceneDirector : MonoBehaviour
         Skybox mainCamSkybox = Camera.main.GetComponent<Skybox>();
         if (mainCamSkybox)
         {
-            mainCamSkybox.material = subScenes[subSceneIndex].GetComponentInChildren<Skybox>().material;
+            mainCamSkybox.material = subScenes[subSceneIndex].GetComponentInChildren<Skybox>()?.material;
         }
     }
 }

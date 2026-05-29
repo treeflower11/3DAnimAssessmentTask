@@ -21,8 +21,11 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         followPlayer = GetComponentInChildren<CinemachineCamera>();
-        followPlayer.enabled = true;
-        followPlayer.Prioritize();
+        if (followPlayer)
+        {
+            followPlayer.enabled = true;
+            followPlayer.Prioritize();
+        }
     }
 
     void Update()
