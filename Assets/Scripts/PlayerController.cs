@@ -58,8 +58,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        // Debug.Log("I'm in a trigger");
-        if (other.CompareTag("PaperRange") && giveAction.triggered)
+        if (other.CompareTag("PaperRange") && giveAction.triggered & isActiveAndEnabled)
         {
             givePaper ??= StartCoroutine(GivePaper());
         }

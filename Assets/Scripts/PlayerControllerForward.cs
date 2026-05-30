@@ -59,11 +59,6 @@ public class PlayerControllerForward : MonoBehaviour
 
         float moveX = moveInput.x;
 
-        // if (sprintAction.inProgress)
-        // {
-        //     moveX *= sprintBoost;
-        // }
-
         if (moveInput.x > 0)
         {
             transform.Translate(0, 0, moveX * Time.deltaTime * moveSpeed);

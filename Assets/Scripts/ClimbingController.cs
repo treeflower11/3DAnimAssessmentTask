@@ -90,7 +90,7 @@ public class ClimbingController : MonoBehaviour
     {
         if (other.CompareTag("NextScene"))
         {
-            sceneDirector.GoToNextSubScene();
+            if (sceneDirector) sceneDirector.GoToNextSubScene();
         }
     }
 
