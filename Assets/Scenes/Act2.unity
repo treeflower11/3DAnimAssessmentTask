@@ -11571,12 +11571,17 @@ PlayableDirector:
     value: {fileID: 5605236956876154904}
   - key: {fileID: -1181895795521137481, guid: aa03b6cfac046414e9e027fd03f56733, type: 2}
     value: {fileID: 1655012845}
+  - key: {fileID: -6414103590968489114, guid: aa03b6cfac046414e9e027fd03f56733, type: 2}
+    value: {fileID: 6180864773404816964}
+  - key: {fileID: -8183213157184659869, guid: aa03b6cfac046414e9e027fd03f56733, type: 2}
+    value: {fileID: 4387681436833591402}
   m_ExposedReferences:
     m_References:
     - e393194fac483c346afe6dabacccd573: {fileID: 1506907111865912879}
     - 4479416eca014c64d824360325b1ee62: {fileID: 1329788021}
     - 0da39ab2812de094b83e44ed66265bb5: {fileID: 2079930657}
     - 1de6881bff916b74f8943bad6f4e4986: {fileID: 1714520390}
+    - 9c758a367ab83664d803684537a2f053: {fileID: 1518925451}
     - ad2e4dea7bbc0124b80625e0e65075f7: {fileID: 1506907111865912879}
     - 3b79926a714d82842acf6d7725cc04fb: {fileID: 2141190}
     - a64e9c1921187424985b73a07fa87074: {fileID: 1008903313}
@@ -23594,6 +23599,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 66734389ba38fba4d88c48a96c8656a6, type: 3}
   m_PrefabInstance: {fileID: 1508418902}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1518925449
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1518925450}
+  - component: {fileID: 1518925451}
+  m_Layer: 0
+  m_Name: Cam4 (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1518925450
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518925449}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.021531984, y: 0.016358115, z: 0.010240101, w: 0.99958193}
+  m_LocalPosition: {x: -2.7299232, y: 4.645849, z: 18.189575}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5970731747227900567}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1518925451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518925449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
+  Priority:
+    Enabled: 0
+    m_Value: 0
+  OutputChannel: 1
+  StandbyUpdate: 2
+  m_StreamingVersion: 20241001
+  m_LegacyPriority: 0
+  Target:
+    TrackingTarget: {fileID: 0}
+    LookAtTarget: {fileID: 0}
+    CustomLookAtTarget: 0
+  Lens:
+    FieldOfView: 60
+    OrthographicSize: 5
+    NearClipPlane: 0.01
+    FarClipPlane: 1000
+    Dutch: 0
+    ModeOverride: 0
+    PhysicalProperties:
+      GateFit: 2
+      SensorSize: {x: 21.946, y: 16.002}
+      LensShift: {x: 0, y: 0}
+      FocusDistance: 10
+      Iso: 200
+      ShutterSpeed: 0.005
+      Aperture: 16
+      BladeCount: 5
+      Curvature: {x: 2, y: 11}
+      BarrelClipping: 0.25
+      Anamorphism: 0
+  BlendHint: 0
 --- !u!4 &1530246378 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 21932727317521703, guid: 9eec780cdbedbbc41abdfcf4cdd066e2, type: 3}
@@ -24658,8 +24738,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1655012840}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.15068664, y: -0.18660645, z: -0.019173246, w: 0.97062045}
-  m_LocalPosition: {x: 23.102764, y: 4.6193266, z: 207.27156}
+  m_LocalRotation: {x: -0.021531984, y: 0.016358115, z: 0.010240101, w: 0.99958193}
+  m_LocalPosition: {x: 22.983551, y: 4.6458497, z: 207.20958}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -35194,8 +35274,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6195840475277752631}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0033399854, y: 0.5000012, z: 0.015696788, w: 0.865876}
-  m_LocalPosition: {x: -2.8756542, y: 3.7024632, z: 16.375687}
+  m_LocalRotation: {x: -0, y: 0.79043704, z: -0, w: 0.6125433}
+  m_LocalPosition: {x: -2.8260632, y: 3.6672633, z: 18.241577}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -39504,7 +39584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &2689006416409027951
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -50581,12 +50661,7 @@ Animator:
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
-  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
-    are already bound by a Humanoid avatar. These transforms can only be changed
-    by Humanoid clips.\n\tTransform 'Head'\n\tTransform 'Lower_Leg_R'\n\tTransform
-    'Hand_L'\n\tTransform 'Upper_Leg_R'\n\tTransform 'Upper_Arm_L'\n\tTransform 'Foot_R'\n\tTransform
-    'Shoulder_R'\n\tTransform 'Hips'\n\tTransform 'Toe_R'\n\tTransform 'Foot_L'\n\tand
-    more ..."
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -51777,6 +51852,7 @@ Transform:
   - {fileID: 2079930656}
   - {fileID: 1329788020}
   - {fileID: 2141189}
+  - {fileID: 1518925450}
   - {fileID: 8464859736808007046}
   - {fileID: 5153030016860518811}
   - {fileID: 5204401872612203325}
@@ -54824,8 +54900,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 482752790213442644}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.03200307, y: -0.69211763, z: -0.030745836, w: 0.72041917}
-  m_LocalPosition: {x: 0.29000092, y: 4.683, z: 17.056}
+  m_LocalRotation: {x: -0.026421156, y: -0.5627852, z: -0.018002074, w: 0.82598466}
+  m_LocalPosition: {x: 0.6097622, y: 4.691911, z: 18.240707}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -57062,12 +57138,7 @@ Animator:
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
-  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
-    are already bound by a Humanoid avatar. These transforms can only be changed
-    by Humanoid clips.\n\tTransform 'Head'\n\tTransform 'Lower_Leg_R'\n\tTransform
-    'Hand_L'\n\tTransform 'Upper_Leg_R'\n\tTransform 'Upper_Arm_L'\n\tTransform 'Foot_R'\n\tTransform
-    'Shoulder_R'\n\tTransform 'Hips'\n\tTransform 'Toe_R'\n\tTransform 'Foot_L'\n\tand
-    more ..."
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
