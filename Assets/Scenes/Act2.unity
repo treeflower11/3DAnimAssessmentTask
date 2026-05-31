@@ -34811,8 +34811,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6195840475277752631}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0033399854, y: 0.5000012, z: 0.015696788, w: 0.865876}
-  m_LocalPosition: {x: -2.8756542, y: 3.7024632, z: 16.375687}
+  m_LocalRotation: {x: -0.012134991, y: -0.67525023, z: -0.007619775, w: 0.7374496}
+  m_LocalPosition: {x: -2.3984928, y: 3.7084239, z: 17.014511}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -51373,6 +51373,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 517052065}
   - {fileID: 841527473249465872}
   - {fileID: 2942982097522469515}
   - {fileID: 7910598682370648389}
@@ -51386,7 +51387,6 @@ Transform:
   - {fileID: 8464859736808007046}
   - {fileID: 5153030016860518811}
   - {fileID: 5204401872612203325}
-  - {fileID: 517052065}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5987661527824413992
@@ -54431,8 +54431,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 482752790213442644}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.032003094, y: -0.69211763, z: -0.030745855, w: 0.72041917}
-  m_LocalPosition: {x: 0.28999996, y: 4.683, z: 17.056}
+  m_LocalRotation: {x: -0.027892074, y: -0.5776169, z: -0.019753663, w: 0.81559217}
+  m_LocalPosition: {x: 1.0228252, y: 4.686447, z: 18.22322}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56669,7 +56669,12 @@ Animator:
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'Head'\n\tTransform 'Lower_Leg_R'\n\tTransform
+    'Hand_L'\n\tTransform 'Upper_Leg_R'\n\tTransform 'Upper_Arm_L'\n\tTransform 'Foot_R'\n\tTransform
+    'Shoulder_R'\n\tTransform 'Hips'\n\tTransform 'Toe_R'\n\tTransform 'Foot_L'\n\tand
+    more ..."
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
