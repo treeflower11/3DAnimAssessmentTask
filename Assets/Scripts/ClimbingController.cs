@@ -15,6 +15,9 @@ public class ClimbingController : MonoBehaviour
     [SerializeField] private GameObject canvas;
     private ParticleSystem happyParticles;
     private ParticleSystem nervousParticles;
+    [SerializeField] private AudioClip failNoise;
+    [SerializeField] private AudioClip successNoise;
+    private AudioSource audioSource;
     private float handIKWeight = 1;
     private float footIKWeight = 1;
     private SceneDirector sceneDirector;
@@ -60,6 +63,8 @@ public class ClimbingController : MonoBehaviour
         progressBar = GameObject.FindWithTag("ClimbSlider")?.GetComponent<Slider>();
         checkpoint = GameObject.FindWithTag("NextScene")?.transform;
         if (checkpoint) totalDistanceToCheckpoint = checkpoint.position.y - heightOffset - transform.position.y;
+
+        audioSource = GameObject.Find("SoundEffects")?.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -116,6 +121,11 @@ public class ClimbingController : MonoBehaviour
         if (ConvertToUpper(c).Equals(ConvertToUpper(currentKey)))
         {
             PlayParticles(happyParticles);
+            if (audioSource)
+            {
+                audioSource.clip = successNoise;
+                audioSource.Play();
+            }
             AddToClimbQueue();
             EndKeyCoroutine();
         }
@@ -154,6 +164,11 @@ public class ClimbingController : MonoBehaviour
     {
         float distance = 0;
         PlayParticles(nervousParticles);
+        if (audioSource)
+        {
+            audioSource.clip = failNoise;
+            audioSource.Play();
+        }
         while (distance < totalFallDistance && transform.position.y > initialHeight)
         {
             distance += Time.deltaTime * moveSpeed;

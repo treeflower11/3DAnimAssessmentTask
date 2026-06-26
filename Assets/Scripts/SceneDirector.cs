@@ -99,7 +99,7 @@ public class SceneDirector : MonoBehaviour
 
     private void SetupSkybox()
     {
-        Skybox mainCamSkybox = Camera.main.GetComponent<Skybox>();
+        Skybox mainCamSkybox = Camera.main?.GetComponent<Skybox>();
         if (mainCamSkybox)
         {
             mainCamSkybox.material = subScenes[subSceneIndex].GetComponentInChildren<Skybox>()?.material;
